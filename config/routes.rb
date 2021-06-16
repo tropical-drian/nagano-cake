@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :customers, only: [:index, :show, :edit, :update]
     resources :products, except: [:destroy]
     resources :genres, except: [:destroy]
-    resources :searchs, only: [:search]
+    resources :searches, only: [:search]
   end
 
 
