@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   devise_for :admins, class_name: "Admin::Admin"
-  devise_for :customers, class_name: "Public::Customer"
+
+  devise_for :customers, class_name: "Public::Customer", :controllers => {
+    :sessions => 'customers/sessions',
+    :registrations => 'customers/registrations',
+   }
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root to: 'public/products#top'
