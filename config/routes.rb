@@ -9,7 +9,13 @@ Rails.application.routes.draw do
   resources :products, only: [:show, :index, :top, :about]
   resources :customers, only: [:show, :withdraw, :out, :edit, :update]
   resources :cart_items, only: [:destroy_all, :destroy, :create, :update, :index]
-  resources :orders, only: [:new, :check, :create, :complete, :index, :show]
+  resources :orders,only: [:new,:index,:show,:create] do
+    collection do
+    post 'check'
+    get 'complete'
+    end
+   end
+
   resources :deliverys, only: [:create, :index, :destroy, :edit, :update]
 
   namespace :admin do
