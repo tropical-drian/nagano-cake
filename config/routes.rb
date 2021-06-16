@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   devise_for :customers, class_name: "Public::Customer"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root to: 'products#top'
-  get 'about' => 'products#about'
+  root to: 'public/products#top'
+  get 'about' => 'public/products#about'
 
   resources :products, only: [:show, :index, :top, :about]
   resources :customers, only: [:show, :withdraw, :out, :edit, :update]
@@ -19,7 +19,6 @@ Rails.application.routes.draw do
     resources :products, except: [:destroy]
     resources :genres, except: [:destroy]
     resources :searchs, only: [:search]
-
   end
 
 
