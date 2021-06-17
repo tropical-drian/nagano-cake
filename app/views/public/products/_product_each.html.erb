@@ -1,0 +1,18 @@
+<% if product.genre.is_valid == true %>
+ <div class="product-container">
+   <%= link_to product_path(product.id) %>
+   <%= attacment_image_tag(product, :image, size: "100x70",fallback: "no_image.jpg" )%>
+
+  <p class="products-name">
+    <%= product.name %>
+  </p>
+
+  <% if product.is_sale == true %>
+   <!--delmited railsで数値を3桁区切りにする方法-->
+   <p>¥<%= product.tax_out_price.to_s(:delmited) %></p>
+  <% elsif product.is_sale == false %>
+   <p class = "Sold out">売り切れ中</p>
+  <% end %>
+
+ </div>
+<% end %>
