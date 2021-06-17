@@ -10,10 +10,11 @@ class Public::ProductsController < ApplicationController
   end
 
   def index
-    @products = P
+    @products = Product.where(is_sale: true).page(params[:page]).per(8)
   end
 
   def show
+    @product = Product.find(params[:id])
   end
 
 end
