@@ -1,0 +1,19 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <h2>商品詳細</h2>
+      <%= attachment_image_tag(@product, :image, :fill, 100, 100, fallback: "no-image-icon.jpg") %>
+      </div>
+      <div class='col-md-8 offset-md-1'>
+  		<table class='table'>
+  		  <tr>
+  		    <td>商品名<%= @product.name %></td>
+          <td>商品説明<%= @product.description %></td>
+          <td>ジャンル<%= @product.description %></td>
+          <td>価格<%= @product.price %></td>
+          <td>販売ステータス<%= @product.status %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
