@@ -15,7 +15,12 @@ class Admin::ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @product.save!
+    if @product.save
+      redirect_to admin_product_path(@product), notice: 'You have created product successfully.'
+    else
+      @products = Product.all
+      render 'index'
+    end
   end
 
   def edit
@@ -23,7 +28,7 @@ class Admin::ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      redirect_to admin_product_path(@product), notice: 'You have updated genre successfully.'
+      redirect_to admin_product_path(@product), notice: 'You have updated product successfully.'
     else
       render 'edit'
     end
@@ -31,7 +36,7 @@ class Admin::ProductsController < ApplicationController
 
   private
     def product_params
-      params.require(:product).permit(:name, :image, :description, :price, :genre_id, :status)
+      params.require(:priduct)permit(:name, :image, :description, :price, :genre_id, :status)
     end
 
 end
