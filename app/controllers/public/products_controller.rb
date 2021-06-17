@@ -10,6 +10,7 @@ class Public::ProductsController < ApplicationController
   end
 
   def index
+    @products = P
   end
 
   def show
