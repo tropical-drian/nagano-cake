@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :admins, class_name: "Admin::Admin"
+  devise_for :admins, :controllers => {
+    :sessions => 'admins/sessions'
+  }
 
   devise_for :customers, class_name: "Public::Customer", :controllers => {
     :sessions => 'customers/sessions',
