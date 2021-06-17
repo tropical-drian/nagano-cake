@@ -13,11 +13,31 @@ Rails.application.routes.draw do
   root to: 'products#top'
   get 'about' => 'products#about'
 
-  resources :products, only: [:show, :index, :top, :about]
-  resources :customers, only: [:show, :withdraw, :out, :edit, :update]
-  resources :cart_items, only: [:destroy_all, :destroy, :create, :update, :index]
-  resources :orders, only: [:new, :check, :create, :complete, :index, :show]
-  resources :deliverys, only: [:create, :index, :destroy, :edit, :update]
+  scope module: :public do
+
+    resources :products, only: [:show, :index, :top, :about]
+    get 'customer/edit' => 'customers#edit'
+    put 'customer' => 'customers#update'
+
+    resource :customers, only: [:show] do
+      collection do
+        get 'withdraw'
+        patch 'out'
+      end
+    end
+
+    resources :cart_items, only: [:destroy_all, :destroy, :create, :update, :index]
+    resources :orders,only: [:new,:index,:show,:create] do
+      collection do
+        post 'check'
+        get 'complete'
+      end
+     end
+
+    resources :deliverys, only: [:create, :index, :destroy, :edit, :update]
+
+  end
+
 
   namespace :admin do
     resources :orders, only: [:show, :update, :top]
