@@ -10,9 +10,17 @@ class Public::ProductsController < ApplicationController
   end
 
   def index
+<<<<<<< HEAD
   end
 
   def show
+=======
+    @products = Product.where(is_sale: true).page(params[:page]).per(8)
+  end
+
+  def show
+    @product = Product.find(params[:id])
+>>>>>>> f9a21828de53eea034a69ac5f993490cf79f325d
   end
 
 end
