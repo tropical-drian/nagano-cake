@@ -8,6 +8,8 @@ class Customer < ApplicationRecord
             :residence, :phone_number,
             presence: true
 
+  has_many   :delivery, dependent: :destroy
+
   # 退会機能
   def active_for_authentication?
     super && (self.is_valid == false)
