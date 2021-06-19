@@ -7,7 +7,7 @@ class Customers::SessionsController < Devise::SessionsController
   protected
 
   def reject_customer
-    @customer = Public::Customer.find_by(email: params[:customer][:email].downcase)
+    @customer = Customer.find_by(email: params[:customer][:email].downcase)
     if @customer
       if (@customer.valid_password?(params[:customer][:password]) && (@customer.active_for_authentication? == false))
          flash[:error] = "退会済みです。"
