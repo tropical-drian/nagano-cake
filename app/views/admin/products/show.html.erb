@@ -7,11 +7,11 @@
       <div class='col-md-8 offset-md-1'>
   		<table class='table'>
   		  <tr>
-  		    <td>商品名<%= @product.name %></td>
-          <td>商品説明<%= @product.description %></td>
-          <td>ジャンル<%= @product.description %></td>
-          <td>価格<%= @product.price %></td>
-          <td>販売ステータス<%= @product.status %></td>
+  		    <td>商品名:<br><%= @product.name %></td>
+          <td>商品説明:<br><%= @product.description %></td>
+          <td>ジャンル:<br><%= @product.genre.name %></td>
+          <td>価格:<br><%= @product.price %></td>
+          <td>販売ステータス:<br><%= @product.status ? '販売中' : '販売停止中' %></td>
         </tr>
       </table>
     </div>
