@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     :sessions => 'admins/sessions'
   }
 
-  devise_for :customers, class_name: "Public::Customer", :controllers => {
+  devise_for :customers, :controllers => {
     :sessions => 'customers/sessions',
     :registrations => 'customers/registrations',
    }
@@ -13,17 +13,31 @@ Rails.application.routes.draw do
   root to: 'public/products#top'
   get 'about' => 'public/products#about'
 
-  resources :products, only: [:show, :index, :top, :about]
-  resources :customers, only: [:show, :withdraw, :out, :edit, :update]
-  resources :cart_items, only: [:destroy_all, :destroy, :create, :update, :index]
-  resources :orders,only: [:new,:index,:show,:create] do
-    collection do
-    post 'check'
-    get 'complete'
-    end
-   end
+  scope module: :public do
 
-  resources :deliverys, only: [:create, :index, :destroy, :edit, :update]
+    resources :products, only: [:show, :index, :top, :about]
+    get 'customer/edit' => 'customers#edit'
+    put 'customer' => 'customers#update'
+
+    resource :customers, only: [:show] do
+      collection do
+        get 'withdraw'
+        patch 'out'
+      end
+    end
+
+    resources :cart_items, only: [:destroy_all, :destroy, :create, :update, :index]
+    resources :orders,only: [:new,:index,:show,:create] do
+      collection do
+        post 'check'
+        get 'complete'
+      end
+     end
+
+    resources :deliverys, only: [:create, :index, :destroy, :edit, :update]
+
+  end
+
 
   namespace :admin do
     resources :orders, only: [:show, :update, :top]
