@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     :sessions => 'admins/sessions'
   }
 
-  devise_for :customers, class_name: "Public::Customer", :controllers => {
+  devise_for :customers, :controllers => {
     :sessions => 'customers/sessions',
     :registrations => 'customers/registrations',
    }
