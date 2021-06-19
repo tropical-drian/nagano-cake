@@ -2,7 +2,7 @@
   <div class='row'>
     <h2>新規商品登録</h2>
     <div class='col-md-8'>
-        <%= form_with model: @product, url:admin_products_path, local:true do |f| %>
+        <%= form_with model: @product, url: admin_products_path(@product), local:true do |f| %>
       <div class="form-group">
         <%= f.label :image_id, "商品画像" %>
         <%= f.attachment_field :image %>
