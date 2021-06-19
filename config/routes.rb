@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   get 'about' => 'public/products#about'
 
   scope module: :public do
-
     resources :products, only: [:show, :index, :top, :about]
     get 'customer/edit' => 'customers#edit'
     put 'customer' => 'customers#update'
