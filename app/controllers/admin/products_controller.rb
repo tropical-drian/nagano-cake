@@ -6,6 +6,7 @@ class Admin::ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @product_intax = ((@product.price * 1.1).round(2)).ceil
   end
 
   def new
