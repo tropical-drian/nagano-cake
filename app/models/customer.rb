@@ -10,7 +10,11 @@ class Customer < ApplicationRecord
             :residence, :phone_number,
             presence: true
 
+<<<<<<< HEAD
   has_many :cart_items, dependent: :destroy
+=======
+  has_many   :delivery, dependent: :destroy
+>>>>>>> [Update delivery index ページ作成]
 
   # 退会機能
   def active_for_authentication?
