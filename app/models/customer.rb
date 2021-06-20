@@ -7,6 +7,8 @@ class Customer < ApplicationRecord
   validates :first_name, :last_name, :kana_first_name, :kana_last_name,
             :residence, :phone_number,
             presence: true
+            
+  has_many :cart_items, dependent: :destroy
 
   # 退会機能
   def active_for_authentication?
