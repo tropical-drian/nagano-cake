@@ -19,6 +19,10 @@
           <li><%= link_to "注文履歴一覧", admin_orders_path %></li>
           <li><%= link_to ' ジャンル一覧', admin_genres_path %></li>
           <li><%= link_to ' ログアウト', destroy_admin_session_path, method: :delete %></li>
+
+          <!--商品検索フォーム挿入※部分テンプレート引用失敗-->
+          <%= render 'search' %>
+
         <% else %>
           <li><%= link_to ' About', about_path %></li>
           <li><%= link_to ' 商品一覧', products_path %></li>
