@@ -1,5 +1,5 @@
 <h2>注文情報確認</h2>
-  <% if current_customer.cart_items.present? %>
+  <% if @cart_item.present? %>
     <table>
       <thead>
         <tr>
@@ -10,18 +10,20 @@
         </tr>
       </thead>
       <tbody>
-        <% @cart_items.each do |cart_items| %>
+        <% @cart_item.each do |cart_items| %>
         <tr>
           <td>
             <%= attachment_image_tag( cart_items.product, :image, size: "60x50", fallback: "no_image.jpg") %>
             <%= cart_items.product.name %>
           </td>
+            <%= tax_price(cart_items.product.price).to_s(:delimited) %>
           <td>
           </td>
           <td>
             <%= cart_items.quantity %>
           </td>
           <td>
+            <%= subtotal(cart_items).to_s(:delimited) %>
           </td>
         </tr>
         <% end %>
@@ -31,15 +33,15 @@
     <table>
       <tr>
         <th>送料</th>
-          <td>¥<%= @order.postage %></td>
+          <td><%= @order.postage %></td>
       </tr>
       <tr>
         <th>商品合計</th>
-          <td></td>
+          <td><%= product_total_price(@cart_item).to_s(:delimited) %><</td>
       </tr>
       <tr>
         <th>請求金額</th>
-          <td></td>
+          <td><%= billing(@order).to_s(:delimited) %></td>
       </tr>
     </table>
 
@@ -53,23 +55,26 @@
       <tr>
         <th>お届け先</th>
           <td>
-            <%= "#{@order.postal_code} #{@order.address} 　#{@order.name}" %>
+            <%= @order.postal_code %> <%=@order.address %></br>
+            <%=@order.name %>
           </td>
         </tr>
     </table>
 
   <!-- formを非表示で記入 -->
-      <div>
-      <%= form_with model: @order, url: customers_orders_path, method: :post, local: true do |f| %>
+    <div>
+      <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
         <%= f.hidden_field :postal_code %>
         <%= f.hidden_field :address %>
         <%= f.hidden_field :name %>
         <%= f.hidden_field :payment_method %>
         <%= f.hidden_field :total_price %>
-        <%= f.submit "購入を確定する", class: "btn-warning" %>
+        <%= f.submit "購入を確定する", class: "btn-success" %>
       <% end %>
-      </div>
+    </div>
+
   <% else %>
   <!-- if カートアイテムがない時 -->
     <p>カートに商品がありません。</p>
+
   <% end %>
