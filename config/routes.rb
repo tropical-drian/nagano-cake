@@ -41,6 +41,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :orders, only: [:show, :update, :top]
+    get 'orders' => 'orders#top',as: :root
     resources :ordered_products, only: [:update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :products, except: [:destroy]
