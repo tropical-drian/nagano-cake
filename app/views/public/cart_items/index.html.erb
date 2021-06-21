@@ -22,7 +22,7 @@
       <%#= cart_item.product_intax %>(<%#= cart_item.product.price %>)
     </td>
     <td>
-    　<%= form_with model: @cart_item, method: :patch ,local: true  do |f| %>
+    　<%= form_with model: @cart_item, url: cart_items_path , method: :patch ,local: true  do |f| %>
     　<%= f.number_field :quantity, size: 10, min: 1 %>
     　<!--< f.submit "変更"　%>-->
     　<% end %>
