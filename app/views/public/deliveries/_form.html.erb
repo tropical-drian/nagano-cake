@@ -1,20 +1,23 @@
 <h1>配達先登録一覧</h1>
 
 <div class="create-delivery-section">
-  <%= form_with model:delivery, local:true do |f| %>
+
+  <%= form_with model:delivery, url:deliveries_path, local: true do |f| %>
+
    <div class="create-delivery-table row">
     <div class="col-xs-7">
       <table class="table">
 
         <tbody>
 
-          <tr class="row">
+         <tr class="row">
             <th class ="col-xs-3">郵便番号</th>
             <td class="col-xs-9 row">
               <div class="col-xs-4">
-                <%= f.text_field :zip_code, class:"form-control", placeholder: "0000000" %>
+                <%= f.text_field :postcode, class:"form-control", placeholder: "0000000" %>
               </div>
             </td>
+            </th>
           </tr>
 
           <tr class="row">

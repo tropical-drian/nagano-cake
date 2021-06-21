@@ -1,0 +1,33 @@
+<div class="container-fluid">
+
+<%= render "public/deliveries/form", delivery: @delivery　%>
+
+<%# if @delivery.present? %>
+　<table class="table table-hover table-bordered">
+　  <thead>
+　    <tr class="info" >
+       <th>郵便番号</th>
+       <th>住所</th>
+       <th>宛先</th>
+       <th colspan = "2"></th>
+　    </tr>
+　  </thead>
+
+　  <tbody>
+　  　<% @a.each do |delivery| %>
+　  　<tr>
+　  　   <td><%= delivery.zipcode %></td>
+　  　   <td><%= delivery.address %><</td>
+　  　   <td><%= delivery.name %><</td>
+　  　   <td><%= link_to "編集する", edit_delivery_path(customer_delivery.id), class:"btn btn-success" %></td>
+　  　   <td><%= link_to "削除する", delivery_path(customer_delivery.id), method: :delete,　class:"btn btn-danger" %></td>
+　  　 </tr>
+　  　<% end %>
+　  </tbody>
+　</table>
+
+　<div class="divclass return-mypage-btn-wrap">
+　 <%= link_to "マイページへ戻る", customers_path(current_customer.id), class:"btn btn-default" %>
+　</div>
+<%# end %>
+</div>

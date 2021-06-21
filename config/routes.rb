@@ -34,7 +34,7 @@ Rails.application.routes.draw do
       end
      end
 
-    resources :deliverys, only: [:create, :index, :destroy, :edit, :update]
+    resources :deliveries, only: [:create, :index, :destroy, :edit, :update]
 
   end
 
