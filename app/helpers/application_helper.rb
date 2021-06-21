@@ -13,9 +13,9 @@ module ApplicationHelper
 
    # 商品合計金額の計算
   def product_total_price(products)
-    sum = 0
+    price = 0
     products.each do |product|
-     sum += subtotal(product)
+      price  +=  subtotal(product)
     end
     return price
   end
