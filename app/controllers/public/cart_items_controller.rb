@@ -14,7 +14,7 @@ class Public::CartItemsController < ApplicationController
 
     @cart_item.save
     flash[:notice] = "#{@cart_item.product.name}をカートに追加しました"
-    redirect_to products_path
+    redirect_to cart_items_path
 	end
 
 	def all_destroy
