@@ -39,10 +39,9 @@ Rails.application.routes.draw do
       end
      end
 
-    resources :deliverys, only: [:create, :index, :destroy, :edit, :update]
+    resources :deliveries, only: [:create, :index, :destroy, :edit, :update]
 
   end
-
 
   namespace :admin do
     resources :orders, only: [:show, :update, :top]
@@ -51,7 +50,8 @@ Rails.application.routes.draw do
     resources :customers, only: [:index, :show, :edit, :update]
     resources :products, except: [:destroy]
     resources :genres, except: [:destroy]
-    resources :searches, only: [:search]
+    # resources :searches, only: [:search]
+    get 'searchs'
   end
 
 

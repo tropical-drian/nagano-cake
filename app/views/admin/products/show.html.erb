@@ -2,16 +2,29 @@
   <div class='row'>
     <div class='col-md-3'>
       <h2>商品詳細</h2>
-      <%= attachment_image_tag(@product, :image, :fill, 100, 100, fallback: "no-image-icon.jpg") %>
+      <%= attachment_image_tag(@product, :image, :fill, 250, 250, fallback: "no-image-icon.jpg") %>
       </div>
       <div class='col-md-8 offset-md-1'>
-  		<table class='table'>
+  		<table class='field'>
   		  <tr>
-  		    <td>商品名:<br><%= @product.name %></td>
-          <td>商品説明:<br><%= @product.description %></td>
-          <td>ジャンル:<br><%= @product.genre.name %></td>
-          <td>税込み価格（税抜き価格）:<br><%= @product_intax %>(<%= @product.price %>)</td>
-          <td>販売ステータス:<br><%= @product.status ? '販売中' : '販売停止中' %></td>
+  		    <td>商品名:</td>
+  		    <td><%= @product.name %></td>
+  		  </tr>
+  		  <tr>
+          <td>商品説明:</td>
+          <td><%= @product.description %></td>
+        </tr>
+        <tr>
+          <td>ジャンル:</td>
+          <td><%= @product.genre.name %></td>
+        </tr>
+        <tr>
+          <td>税込み価格（税抜き価格）:</td>
+          <td><%= @product_intax %>(<%= @product.price %>)</td>
+        </tr>
+        <tr>
+          <td>販売ステータス:</td>
+          <td><%= @product.status ? '販売中' : '販売停止中' %></td>
         </tr>
       </table>
       <%= link_to '編集する', edit_admin_product_path(@product), class: "btn btn-sm btn-success" %>
