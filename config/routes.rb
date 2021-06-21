@@ -25,7 +25,13 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :cart_items, only: [:destroy_all, :destroy, :create, :update, :index]
+    resources :cart_items,only: [:index,:update,:create,:destroy] do
+      collection do
+        delete '/' => 'cart_items#all_destroy'
+      end
+    end
+
+
     resources :orders,only: [:new,:index,:show,:create] do
       collection do
         post 'check'
