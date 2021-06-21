@@ -1,22 +1,21 @@
 class Public::DeliveriesController < ApplicationController
 
   def create
-    #byebug
+
     @delivery = Delivery.new(delivery_params)
     #@delivery = current_cust.new
     #@delivery = Delivery.new( params.require(:delivery).permit(:name, :postcode, :address, :customer_id))
-    #byebug
         #@payment = current_user.payments.new
     @delivery.customer_id = current_customer.id
-    @delivery.save
-  　flash[:notice] = "配達先を登録しました"
-    redirect_to  deliverys_path
-    #else
+    if @delivery.save
+    flash[:notice] = "配達先を登録しました"
+     redirect_to deliveries_path
+    else
     #@delivery = Delivery.new
     #@delivery.customer_id = current_customer.id
-    #flash[:notice] = "必要情報を入力してください／ハイフンは使用できません"
-    #render :index
-    #end
+     flash[:notice] = "必要情報を入力してください／ハイフンは使用できません"
+     redirect_to  deliveries_path
+    end
   end
 
   def index
