@@ -12,6 +12,8 @@ class Customer < ApplicationRecord
             
   has_many :cart_items, dependent: :destroy
 
+  has_many   :delivery, dependent: :destroy
+
   # 退会機能
   def active_for_authentication?
     super && (self.is_valid == false)
