@@ -6,4 +6,9 @@ class Product < ApplicationRecord
 	has_many :ordered_products
 
   attachment :image
+
+  # 検索用メソッド
+  def self.search(keyword)
+  where(["name like? OR description like?", "%#{keyword}%", "%#{keyword}%"])
+  end
 end
