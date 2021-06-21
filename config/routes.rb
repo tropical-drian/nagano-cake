@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   get 'about' => 'public/products#about'
 
   scope module: :public do
-
     resources :products, only: [:show, :index, :top, :about]
     get 'customer/edit' => 'customers#edit'
     put 'customer' => 'customers#update'
@@ -41,6 +40,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :orders, only: [:show, :update, :top]
+    get 'orders' => 'orders#top',as: :root
     resources :ordered_products, only: [:update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :products, except: [:destroy]
