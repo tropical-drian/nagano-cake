@@ -5,33 +5,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  # 税込の計算
-  # floorは小数点切り捨て
-  def tax_price(price)
-    (price * 1.1).floor
-  end
+  private
 
-  # 小計の計算
-  def subtotal(sub)
-    (tax_price(sub.product.price) * sub.quantity)
-  end
-
-   # 商品合計金額の計算
-  def product_total_price(products)
-    sum = 0
-    products.each do |product|
-     sum += subtotal(product)
-    end
-    return price
-  end
-
-  # 請求額の計算
-  def billing(order)
-    product_total_price(current_cart) + order.postage
-  end
-
-  def current_cart
-    @cart_items = current_customer.cart_items
+  def set_cart_item
+    @cart_item = CartItem.find(params[:id])
   end
 
   protected
@@ -44,9 +21,8 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:account_update, keys: added_attrs)
     end
 
-class ApplicationController < ActionController::Base
 <<<<<<< HEAD
-=======
+class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -74,6 +50,18 @@ class ApplicationController < ActionController::Base
   # 請求額の計算
   def billing(order)
     product_total_price(current_cart) + order.postage
+=======
+
+
+  def
+    after_sign_out_path_for(resource_or_scope)
+      if resource_or_scope == :customer
+          root_path
+      elsif resource_or_scope == :admin
+        new_admin_session_path
+      else
+        root_path
+      end
   end
 
   def current_cart
