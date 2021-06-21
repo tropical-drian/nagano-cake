@@ -2,7 +2,7 @@
 
 <%= render "public/deliveries/form", delivery: @delivery %>
 
-<%# if @delivery.present? %>
+<% if @delivery.present? %>
 　<table class="table table-hover table-bordered">
 　  <thead>
 　    <tr class="info" >
@@ -14,13 +14,13 @@
 　  </thead>
 
 　  <tbody>
-　  　<% @a.each do |delivery| %>
+　  　<% @delivery_info.each do |delivery| %>
 　  　<tr>
 　  　   <td><%= delivery.postcode %></td>
-　  　   <td><%= delivery.address %><</td>
-　  　   <td><%= delivery.name %><</td>
-　  　   <td><%= link_to "編集する", edit_delivery_path(customer_delivery.id), class:"btn btn-success" %></td>
-　  　   <td><%= link_to "削除する", delivery_path(customer_delivery.id), method: :delete,　class:"btn btn-danger" %></td>
+　  　   <td><%= delivery.address %></td>
+　  　   <td><%= delivery.name %></td>
+　  　   <td><%= link_to "編集する", edit_delivery_path(delivery), class:"btn btn-success" %></td>
+　  　   <td><%= link_to "削除する", delivery_path(delivery), method: :delete, class:"btn btn-danger" %></td>
 　  　 </tr>
 　  　<% end %>
 　  </tbody>
@@ -29,5 +29,5 @@
 　<div class="divclass return-mypage-btn-wrap">
 　 <%= link_to "マイページへ戻る", customers_path(current_customer.id), class:"btn btn-default" %>
 　</div>
-<%# end %>
+<% end %>
 </div>
