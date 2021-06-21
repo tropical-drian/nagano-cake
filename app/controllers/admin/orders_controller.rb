@@ -1,5 +1,7 @@
 class Admin::OrdersController < ApplicationController
-  
+  before_action :authenticate_admin!
+
+
   def top
     @orders = Order.all.page(params[:page]).per(10)
   end
@@ -9,7 +11,7 @@ class Admin::OrdersController < ApplicationController
   end
 
   def update
-    
+
   end
 
 end

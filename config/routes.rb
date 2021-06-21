@@ -38,7 +38,6 @@ Rails.application.routes.draw do
 
   end
 
-
   namespace :admin do
     resources :orders, only: [:show, :update, :top]
     get 'orders' => 'orders#top',as: :root
@@ -46,8 +45,13 @@ Rails.application.routes.draw do
     resources :customers, only: [:index, :show, :edit, :update]
     resources :products, except: [:destroy]
     resources :genres, except: [:destroy]
+<<<<<<< HEAD
     resources :searchs, only: [:search]
 
+=======
+    # resources :searches, only: [:search]
+    get 'searchs'
+>>>>>>> [Fix]admnin権限
   end
 
 
