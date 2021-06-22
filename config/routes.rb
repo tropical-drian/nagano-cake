@@ -25,7 +25,13 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :cart_items, only: [:destroy_all, :destroy, :create, :update, :index]
+    resources :cart_items,only: [:index,:update,:create,:destroy] do
+      collection do
+        delete '/' => 'cart_items#destroy_all'
+      end
+    end
+
+
     resources :orders,only: [:new,:index,:show,:create] do
       collection do
         post 'check'
@@ -37,7 +43,6 @@ Rails.application.routes.draw do
 
   end
 
-
   namespace :admin do
     resources :orders, only: [:show, :update, :top]
     get 'orders' => 'orders#top',as: :root
@@ -45,7 +50,8 @@ Rails.application.routes.draw do
     resources :customers, only: [:index, :show, :edit, :update]
     resources :products, except: [:destroy]
     resources :genres, except: [:destroy]
-    resources :searches, only: [:search]
+    # resources :searches, only: [:search]
+    get 'searchs'
   end
 
 
