@@ -14,25 +14,30 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(customer: current_customer, payment_method: params[:order][:payment_method])
 
     # addressにご自身の住所の値がはいっている場合
-    if params["r1"] then
+    if params[:address] == "r1" then
       @order.postcode = current_customer.postal_code
       @order.address = current_customer.residence
       @order.name = current_customer.last_name + current_customer.first_name
 
     # addressに登録済住所から選択がはいっている場合
-    elsif params["r2"] then
+    elsif params[:address] == "r2" then
       @delivery = Delivery.find(params[:order][:delivery_id])
       @order.postcode = @delivery.postcode
       @order.address = @delivery.address
       @order.name = @delivery.name
 
     # addressに新しいお届け先がはいっている場合
-    elsif params["r3"] then
+    elsif params[:address] == "r3" then
       @order.postcode = params[:order][:postcode]
       @order.address = params[:order][:address]
       @order.name = params[:order][:name]
+      #新しいお届け先をdeliveryに保存する
+      current_customer.delivery.create(address_params)
+    else
+      # どのラジオボタンも選択しなかったとき
+      flash[:danger] = "必要情報を入力してください"
+      redirect_back(fallback_location: root_path)
     end
-
   end
 
   def create
@@ -42,11 +47,6 @@ class Public::OrdersController < ApplicationController
 
     # total_priceに請求額を代入する
     @order.total_price = billing(@order)
-
-    # 情報入力で新しいお届け先の場合deliveryに保存
-    if  params["r3"] then
-      current_customer.delivery.create(address_params)
-    end
 
     # カート商品の情報を注文商品に移動する
     @cart_items = current_customer.cart_items
@@ -84,6 +84,5 @@ class Public::OrdersController < ApplicationController
   def address_params
     params.require(:order).permit(:postcode, :address, :name)
   end
-
 
 end
