@@ -45,7 +45,7 @@ Rails.application.routes.draw do
     resources :products, except: [:destroy]
     resources :genres, except: [:destroy]
     # resources :searches, only: [:search]
-    get 'searchs'
+    get 'searchs' => "searchs"
   end
 
 
