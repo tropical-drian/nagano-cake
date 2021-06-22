@@ -6,7 +6,7 @@ class Delivery < ApplicationRecord
 	end
   belongs_to :customer
 
-  validates :postcode, presence: true
+  validates :postcode, length: {is: 7}, numericality: { only_integer: true }
   validates :address, presence: true
 	validates :name, presence: true
 
