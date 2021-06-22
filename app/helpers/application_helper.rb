@@ -22,7 +22,7 @@ module ApplicationHelper
 
   # 請求額の計算
   def billing(order)
-    product_total_price(current_cart) + order.postage
+    product_total_price(@cart_items) + order.postage
   end
 
 end
