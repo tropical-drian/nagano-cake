@@ -4,6 +4,7 @@ class Admin::SearchsController < ApplicationController
   def searchs
     @products = Product.search(params[:keyword])
     @keyword = params[:keyword]
+    render 'serchs'
   end
 
 end
