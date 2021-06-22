@@ -13,9 +13,6 @@ class Public::OrdersController < ApplicationController
     @cart_items = current_customer.cart_items
     @order = Order.new(customer: current_customer, payment_method: params[:order][:payment_method])
 
-    # total_priceカラムにに請求額を代入する
-    @order.total_price = billing(@order)
-
     # addressにご自身の住所の値がはいっている場合
     if params["r1"] then
       @order.postcode = current_customer.postal_code
@@ -43,6 +40,9 @@ class Public::OrdersController < ApplicationController
     @order.save
     redirect_to complete_orders_path
 
+    # total_priceに請求額を代入する
+    @order.total_price = billing(@order)
+
     # 情報入力で新しいお届け先の場合deliveryに保存
     if  params["r3"] then
       current_customer.delivery.create(address_params)
@@ -63,16 +63,17 @@ class Public::OrdersController < ApplicationController
 	end
 
 	def index
-    @orders = current_customer.orders
+    @orders = current_customer.orders.all
 	end
 
 	def show
 	  @order = Order.find(params[:id])
-    @ordered_products = @order.ordered_products
+    @ordered_products = @order.ordered_products.all
 	end
 
   def complete
   end
+
 
   private
 
