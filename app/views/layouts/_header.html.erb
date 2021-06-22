@@ -21,7 +21,7 @@
           <li><%= link_to ' ログアウト', destroy_admin_session_path, method: :delete %></li>
 
           <!--商品検索フォーム挿入※部分テンプレート-->
-          <%#= render 'admin/searchs/search' %>
+          <%= render 'admin/searchs/search' %>
 
         <% else %>
           <li><%= link_to ' About', about_path %></li>
