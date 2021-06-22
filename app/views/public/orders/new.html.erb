@@ -1,6 +1,6 @@
 <h2>注文情報入力</h2>
-  <% if @cart_item.present? %>
-    <%= form_with model:@order, method: :post, local: true  do |f| %>
+  <% if @cart_items.present? %>
+    <%= form_with model:@order, url:check_orders_path, method: :post, local: true  do |f| %>
       <p>支払い方法</p>
       <div>
         <%= f.radio_button :payment_method, :"クレジットカード", checked: "checked" %>
@@ -13,38 +13,38 @@
 
       <p>お届け先</p>
       <div>
-        <%= f.radio_button :address, 0, checked: "checked" %>
-        <%= f.label :address, "ご自身の住所" %></br>
-        <%= curent_customer.postal_code %> <%= curent_customer.residence %></br>
+        <%= radio_button_tag("r1", "radio1") %>
+        <%= label_tag("r1_radio1", "ご自身の住所") %>
+        <%= current_customer.postal_code %> <%= current_customer.residence %></br>
         <%= current_customer.last_name %> <%= current_customer.first_name %>
       </div>
 
       <% if @delivery != [] %>
       <div>
-        <%= f.radio_button :address, 1 %>
-        <%= f.label :address, "登録済住所から選択" %></br>
+        <%= radio_button_tag("r2", "radio2") %>
+        <%= label_tag("r2_radio2", "登録済住所から選択") %>
         <%= f.collection_select(:delivery_id, @delivery, :id, :delivery_address) %>
       </div>
       <% end %>
 
       <div>
-        <%= f.radio_button :address, 2 %>
-        <%= f.label :address, "新しいお届け先" %>
+        <%= radio_button_tag("r3", "radio3") %>
+        <%= label_tag("r3_radio3", "新しいお届け先") %>
       </div>
       <div>
-        <%= f.label :"郵便番号(ハイフンなし)" %>
-        <%= f.text_field :postal_code %>
+        <%= label_tag("r3_radio3", "郵便番号(ハイフンなし)") %>
+        <%= f.text_field :postcode %>
       </div>
       <div>
-        <%= f.label :"住所" %>
+        <%= label_tag("r3_radio3", "住所") %>
         <%= f.text_field :address %>
       </div>
       <div>
-        <%= f.label :"宛名" %>
+        <%= label_tag("r3_radio3", "宛名") %>
         <%= f.text_field :name %>
       </div>
       <div>
-        <%= f.submit "確認画面へ進む", class: "btn-success" %>
+        <%= f.submit "確認画面へ進む" %>
       </div>
   <% end %>
   <% else %>
