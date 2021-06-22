@@ -10,7 +10,7 @@
         <tr>
           <th>配送先</th>
             <td>
-              <%= @order.postal_code %></br>
+              <%= @order.postcode %></br>
               <%= @order.address %></br>
               <%= @order.name %>
             </td>
@@ -53,7 +53,7 @@
           </tr>
         </thead>
       　<tbody>
-        　<% @ordered_product.each do |ordered_product| %>
+        　<% @ordered_products.each do |ordered_product| %>
           <tr>
             <td><%= ordered_product.product.name %></td>
             <td><%= tax_price(ordered_product.product.price).to_s(:delimited) %></td>

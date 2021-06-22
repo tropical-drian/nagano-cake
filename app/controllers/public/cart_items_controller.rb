@@ -1,4 +1,5 @@
 class Public::CartItemsController < ApplicationController
+  include ApplicationHelper
 
   before_action :set_cart_item, only: [:update, :destroy]
   before_action :authenticate_customer!
