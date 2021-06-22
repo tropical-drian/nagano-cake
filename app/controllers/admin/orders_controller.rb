@@ -6,7 +6,7 @@ class Admin::OrdersController < ApplicationController
     @orders = Order.all.page(params[:page]).per(10)
   end
   
-  def index
+  def customer_top
     @orders = Order.where(customer_id: params[:id]).page(params[:page]).per(10)
     render :top
   end
