@@ -27,11 +27,11 @@ class Public::DeliveriesController < ApplicationController
      @delivery = Delivery.find(params[:id])
       if @delivery.update(delivery_params)
         flash[:notice] = "配達先を編集しました"
-        redirect_to deliveries_path
+        redirect_to delivery_path
       else
         @delivery = Delivery.find(params[:id])
         flash[:notice] = "必要情報を入力してください／ハイフンは使用できません"
-        redirect_to deliveries_path
+        redirect_to delivery_path
       end
   end
 
