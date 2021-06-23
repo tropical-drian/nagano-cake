@@ -16,6 +16,12 @@
          <%= f.radio_button :payment_method, :"銀行振込" %>
          <%= f.label :payment_method, "銀行振込" %>
         </div>
+      <p>お届け先</p>
+      <div>
+        <input type="radio" id="r1" name="address" value="r1" checked=true >
+        <label for="address">ご自身の住所</label>
+        <%= current_customer.postal_code %> <%= current_customer.residence %></br>
+        <%= current_customer.last_name %> <%= current_customer.first_name %>
       </div>
       <h4>お届け先</h4>
       <div class="ec-select-address">

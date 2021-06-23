@@ -11,7 +11,8 @@ class Public::CartItemsController < ApplicationController
   def update
     @cart_item.update(quantity: params[:cart_item][:quantity].to_i)
     @cart_items = current_customer.cart_items
-    #redirect_to cart_items_path
+    @price = subtotal(@cart_item).to_s(:delimited)
+    @total = product_total_price(@cart_items).to_s(:delimited)
   end
 
   def create
@@ -29,7 +30,7 @@ class Public::CartItemsController < ApplicationController
   def destroy
     @cart_item.destroy
     @cart_items = current_customer.cart_items
-    #redirect_to cart_items_path
+    @total = product_total_price(@cart_items).to_s(:delimited)
   end
 
   def destroy_all
