@@ -22,9 +22,9 @@
 
 　    <tbody>
         <% @cart_items.each do |cart_item| %>
-  	     <tr id="cart">
+  	    <tr id="cart-<%= cart_item.id %>">
           <%= render "quantity_form", cart_item: cart_item %>
-         </tr>
+        </tr>
         <% end %>
        </tbody>
     </table>
@@ -40,7 +40,7 @@
       　<thead>
          <tr>
           <th class="active">合計金額</th>
-          <td class="text-right" id ='total_price'>
+          <td class="text-right" id ='product_total_price'>
            <%= product_total_price(@cart_items).to_s(:delimited) %>
           </td>
          </tr>
