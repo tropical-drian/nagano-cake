@@ -11,7 +11,6 @@ class Public::CartItemsController < ApplicationController
   def update
     @cart_item.update(quantity: params[:cart_item][:quantity].to_i)
     @cart_items = current_customer.cart_items
-    #redirect_to cart_items_path
   end
 
   def create
