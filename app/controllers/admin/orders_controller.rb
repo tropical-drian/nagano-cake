@@ -5,7 +5,7 @@ class Admin::OrdersController < ApplicationController
   def top
     @orders = Order.all.page(params[:page]).per(10)
   end
-  
+
   def customer_top
     @orders = Order.where(customer_id: params[:id]).page(params[:page]).per(10)
     render :top
@@ -17,7 +17,9 @@ class Admin::OrdersController < ApplicationController
   end
 
   def update
-
+    @order = Order.find(params[:id])
+    @order.update(order_params)
+    redirect_to admin_order_path(@order)
   end
 
 	private

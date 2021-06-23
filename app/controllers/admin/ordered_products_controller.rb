@@ -1,9 +1,9 @@
 class Admin::OrderedProductsController < ApplicationController
-<<<<<<< HEAD
-=======
   before_action :authenticate_admin!
 
   def update
+    @ordered_product = OrderedProduct.find(params[:id])
+    @ordered_product.update(ordered_product_params)
+    redirect_to admin_order_path(@ordered_product.order)
   end
->>>>>>> [Fix]admnin権限
 end
