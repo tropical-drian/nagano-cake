@@ -37,8 +37,8 @@
             <th>制作ステータス</th>
           </tr>
         </thead>
-      　<tbody>
-        　<% @ordered_products.each do |ordered_product| %>
+        <tbody>
+          <% @ordered_products.each do |ordered_product| %>
           <tr>
             <td><%= ordered_product.product.name %></td>
             <td><%= tax_price(ordered_product.product.price).to_s(:delimited) %></td>
