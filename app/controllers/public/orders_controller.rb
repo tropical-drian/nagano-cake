@@ -13,7 +13,6 @@ class Public::OrdersController < ApplicationController
   def check
     @cart_items = current_customer.cart_items
     @order = Order.new(customer: current_customer, payment_method: params[:order][:payment_method])
-
     # total_priceに請求額を代入
     @order.total_price = billing(@order)
 
