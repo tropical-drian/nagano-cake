@@ -9,9 +9,13 @@ class Public::OrdersController < ApplicationController
   	@delivery = Delivery.where(customer: current_customer)
   end
 
+
   def check
     @cart_items = current_customer.cart_items
     @order = Order.new(customer: current_customer, payment_method: params[:order][:payment_method])
+
+    # total_priceに請求額を代入
+    @order.total_price = billing(@order)
 
     # addressにご自身の住所の値がはいっている場合
     if params[:address] == "r1" then
@@ -51,7 +55,7 @@ class Public::OrdersController < ApplicationController
     # カート商品の情報を注文商品に移動する
     @cart_items = current_customer.cart_items
     @cart_items.each do |cart_item|
-      OrderedProduct.create(product: cart_item.product, order: @order, quantity: cart_item.quantity, purchase_price: subtotal(cart_item))
+    OrderedProduct.create(product: cart_item.product, order: @order, quantity: cart_item.quantity, purchase_price: subtotal(cart_item))
     end
 
     # 注文完了後にカートを空にする
@@ -63,17 +67,16 @@ class Public::OrdersController < ApplicationController
 	end
 
 	def index
-    @orders = current_customer.orders.all
+    @orders = current_customer.orders
 	end
 
 	def show
 	  @order = Order.find(params[:id])
-    @ordered_products = @order.ordered_products.all
+    @ordered_products = @order.ordered_products
 	end
 
   def complete
   end
-
 
   private
 
