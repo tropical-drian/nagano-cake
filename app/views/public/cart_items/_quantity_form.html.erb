@@ -8,7 +8,7 @@
     <td>
     　<%= form_with model: cart_item, url: cart_item_path(cart_item), method: :patch , remote: true  do |f| %>
     　   <%= f.number_field :quantity, class: "quantity", size: 10, min: 1, id: "quantity_cart" %>
-        <%= f.submit "変更", class:"btn btn-success" %>
+        <%= f.submit "変更", class:"btn btn-outline-success" %>
     　<% end %>
     </td>
 
@@ -17,5 +17,5 @@
 　　</td>
 
 　　<td>
-　　  <%= link_to " 削除する", cart_item_path(cart_item), method: :delete,  remote: true, data: {confirm: "#{cart_item.product.name}を削除してよろしいですか？"}, class: "glyphicon glyphicon-trash btn btn-danger" %>
+　　  <%= link_to " 削除する", cart_item_path(cart_item), method: :delete,  remote: true, data: {confirm: "#{cart_item.product.name}を削除してよろしいですか？"}, class:"btn btn-outline-danger" %>
 　　</td>
