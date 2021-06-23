@@ -3,11 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  private
 
-  def set_cart_item
-    @cart_item = CartItem.find(params[:id])
-  end
 
   protected
 
@@ -30,6 +26,12 @@ class ApplicationController < ActionController::Base
       else
         root_path
       end
+  end
+
+  private
+
+  def set_cart_item
+    @cart_item = CartItem.find(params[:id])
   end
 
 end

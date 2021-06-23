@@ -44,14 +44,18 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :orders, only: [:show, :update, :top]
+    resources :orders, only: [:show, :update, :top]do
+        member do
+        get :customer_top
+        end
+      end
     get 'orders' => 'orders#top',as: :root
     resources :ordered_products, only: [:update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :products, except: [:destroy]
     resources :genres, except: [:destroy]
     # resources :searches, only: [:search]
-    get 'searchs'
+    get 'searchs' => "searchs"
   end
 
 

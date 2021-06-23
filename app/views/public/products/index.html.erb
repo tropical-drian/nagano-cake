@@ -12,6 +12,7 @@
 	  <div class="clearfix product-box">
 		<% @products.each do |product| %>
 		  <%= render "product_each", product: product %>
+		  
 		<% end %>
 	  </div>
 	 <div class="text-center"><%= paginate(@products) %></div>

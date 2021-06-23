@@ -1,4 +1,5 @@
 class Public::CartItemsController < ApplicationController
+  include ApplicationHelper
 
   before_action :set_cart_item, only: [:update, :destroy]
   before_action :authenticate_customer!
@@ -10,6 +11,7 @@ class Public::CartItemsController < ApplicationController
   def update
     @cart_item.update(quantity: params[:cart_item][:quantity].to_i)
     @cart_items = current_customer.cart_items
+    #redirect_to cart_items_path
   end
 
   def create
@@ -27,7 +29,7 @@ class Public::CartItemsController < ApplicationController
   def destroy
     @cart_item.destroy
     @cart_items = current_customer.cart_items
-    redirect_to cart_items_path
+    #redirect_to cart_items_path
   end
 
   def destroy_all

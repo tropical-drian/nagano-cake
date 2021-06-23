@@ -9,7 +9,10 @@ class Customer < ApplicationRecord
   validates :first_name, :last_name, :kana_first_name, :kana_last_name,
             :residence, :phone_number,
             presence: true
-            
+  validates :email, presence: true, uniqueness: true
+  validates :phone_number, numericality: { only_integer: true }
+  validates :postal_code, length: {is: 7}, numericality: { only_integer: true }
+  
   has_many :cart_items, dependent: :destroy
 
   has_many   :delivery, dependent: :destroy

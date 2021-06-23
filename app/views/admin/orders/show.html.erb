@@ -12,7 +12,7 @@
   </tr>
   <tr>
     <td>注文日</td>
-    <td>　　　　　<%= @order.created_at %></td>
+    <td>　　　　　<%= @order.created_at.strftime('%Y/%m/%d') %></td>
   </tr>
   <tr>
     <td>配送先</td>
@@ -24,7 +24,10 @@
   </tr>
   <tr>
     <td>注文ステータス</td>
-    <td>　　　　　<%= @order.status %></td>
+    <%= form_with model: @order, url: admin_order_path(@order), method: :patch, local: true do |f| %>
+    <td>　　　　　<%= f.select :status , Order.statuses.keys,{} %></td>
+    <td><%= f.submit "更新" %></td>
+    <% end %>
   </tr>
 </table>
      <table>
@@ -44,7 +47,10 @@
             <td><%= tax_price(ordered_product.product.price).to_s(:delimited) %></td>
             <td><%= ordered_product.quantity %></td>
             <td><%= subtotal(ordered_product).to_s(:delimited) %></td>
-            <td><%= ordered_product.production_status %></td>
+          <%= form_with model: ordered_product, url: admin_ordered_product_path(ordered_product), method: :patch, local: true do |f| %>
+            <td><%= f.select :production_status , OrderedProduct.production_statuses.keys,{} %></td>
+            <td><%= f.submit "更新" %></td>
+          <% end %>
           </tr>
           <% end %>
         </tbody>

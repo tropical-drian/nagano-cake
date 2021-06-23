@@ -1,4 +1,4 @@
-<%# if product.genre.status == true %>
+<%# if product.genre.is_valid == true %>
   <div class="product-container">
 
       <%= link_to product_path(product.id), class: "btn-link", :style=>"color:#0099FF;" do %>
@@ -8,11 +8,11 @@
       <p class="products-name">
         <%= product.name %>
       </p>
+      <h3>¥ <%= tax_price(product.price).to_s(:delimited) %>
+       <span class="tax">(税込)</span>
+      </h3>
+
       <% end %>
-    <% if product.status == true %>
-      <p>¥<%= product.price.to_s(:delimited) %></p>
-    <% elsif product.is_sale == false %>
-      <p class="soldout">売り切れ中</p>
-    <% end %>
+
   </div>
 <%# end %>
