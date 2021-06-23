@@ -5,7 +5,10 @@
 <table class="field">
   <tr>
     <td>購入者</td>
-    <td>　　　　　<%= @order.customer.last_name %><%= @order.customer.first_name %></td>
+    <td>　　　　　<%= link_to admin_customer_path(@order.customer) do %>
+              <%= @order.customer.last_name %><%= @order.customer.first_name %>
+              <% end %>
+    </td>
   </tr>
   <tr>
     <td>注文日</td>
@@ -19,8 +22,33 @@
     <td>支払方法</td>
     <td>　　　　　<%= @order.payment_method %></td>
   </tr>
+  <tr>
+    <td>注文ステータス</td>
+    <td>　　　　　<%= @order.status %></td>
+  </tr>
 </table>
-
+     <table>
+        <thead>
+          <tr>
+            <th>商品</th>
+            <th>単価(税込)</th>
+            <th>個数</th>
+            <th>小計</th>
+            <th>制作ステータス</th>
+          </tr>
+        </thead>
+      　<tbody>
+        　<% @ordered_products.each do |ordered_product| %>
+          <tr>
+            <td><%= ordered_product.product.name %></td>
+            <td><%= tax_price(ordered_product.product.price).to_s(:delimited) %></td>
+            <td><%= ordered_product.quantity %></td>
+            <td><%= subtotal(ordered_product).to_s(:delimited) %></td>
+            <td><%= ordered_product.production_status %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
 </div>
 </div>
 </div>
