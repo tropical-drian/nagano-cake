@@ -17,19 +17,19 @@
       <tr>
         <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
         <td>
-          <%= order.postal_code %></br>
+          <%= order.postcode%></br>
           <%= order.address %></br>
           <%= order.name %>
         </td>
         <td>
-          <% order.ordered_product.each do |ordered_product| %>
+          <% order.ordered_products.each do |ordered_product| %>
             <%= ordered_product.product.name %><br>
           <% end %>
         </td>
-        <td><%= order.total_price.to_s(:delimited) %>円</td>
-        <td><%= order.status %></td>
+        <td><%#= order.total_price.to_s(:delimited) %>円</td>
+        <td><%= order.status ? '入金待ち' : '入金確認' %></td>
         <td>
-          <%= link_to "表示する", orders_path(order), class: "btn-success" %>
+          <%= link_to "表示する", order_path(order), class: "btn-success" %>
         </td>
       </tr>
     　<% end %>
