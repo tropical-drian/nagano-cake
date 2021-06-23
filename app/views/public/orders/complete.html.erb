@@ -1,1 +1,7 @@
-<h2>ご注文ありがとうございました！</h2>
+<% provide(:title, "ありがとうございました！") %>
+<div class="thanks-container text-center">
+  <h1 class="text-center thanx">ご購入ありがとうございました！</h1><br>
+  <div class="col-xs-7">
+    <%= link_to "注文履歴はこちら", orders_path, class: "glyphicon glyphicon-folder-open btn btn-info pull-right" %>
+  </div>
+</div>
