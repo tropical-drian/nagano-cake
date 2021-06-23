@@ -1,25 +1,19 @@
 <% provide(:title, "ホーム") %>
 
-<div id="box">
-	<div id="images">
-	 <div class="image1"></div>
-     <!--<div class="image2"></div>-->
-	 </div>
-</div>
+<%= render 'public/products/articles', products: @products %>
 
-<div class="class container">
-  <div class="class row">
-    <div class="col-xs-12">
+<div class="inner-container">
+  <div class="row">
+
       <div class = "sample">
-
 				<p>
 				  <span class="welcome">ようこそ　NaganoCakeへ</span><br>
-				  このサイトは、ケーキ販売のECサイトになります。<br>
+				  <span class="describe"> このサイトは、ケーキ販売のECサイトになります。<br>
 				  会員でない方も商品の閲覧はできますが、<br>
-				  購入には会員登録が必要になります。<br>
+				  購入には会員登録が必要になります。<br></span>
 				</p>
       </div>
-    </div>
+
   </div>
 </div>
 
