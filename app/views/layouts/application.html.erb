@@ -10,8 +10,13 @@
   </head>
 
   <body>
-    <%= yield %>
- 
+
+    <%= render 'layouts/header' %>
+        <p id="notice"><%= notice %></p>
+　　<div class="main">
+     <%= yield %>
+    </div>
+
     <%= render 'layouts/footer' %>
     <div class="search-box">
 
