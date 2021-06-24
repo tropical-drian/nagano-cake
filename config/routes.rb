@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   root to: 'public/products#top'
   get 'about' => 'public/products#about'
+  get 'search/search'
 
   scope module: :public do
     resources :products, only: [:show, :index, :top, :about]

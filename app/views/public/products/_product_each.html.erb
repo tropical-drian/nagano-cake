@@ -1,18 +1,28 @@
 <%# if product.genre.is_valid == true %>
-  <div class="product-container">
+  <% @products.each do |product| %>
+    <div class="col-xs-10 col-sm-10 col-md-6 col-lg-3">
+        
+      <div class="card w-100 bg-transparent border-0">
+        <%= link_to product_path(product.id),style: "color: black;" do %>
+        　<div class="image-photo">
+        　<%= attachment_image_tag product, :image, fallback:"no-image.png", size: '180x150', class: "shadow" %>
+       　　 </div>
 
-      <%= link_to product_path(product.id), class: "btn-link", :style=>"color:#0099FF;" do %>
-      <div id="img_field" class="product">
-        <%= attachment_image_tag(product, :image, size: "180x130", fallback: "no_image.jpg") %>
-      </div>
-      <p class="products-name">
-        <%= product.name %>
-      </p>
-      <h3>¥ <%= tax_price(product.price).to_s(:delimited) %>
-       <span class="tax">(税込)</span>
-      </h3>
+        <div class="card-body">
+           <div><%= product.name %></div>
+           <h3>¥ <%= tax_price(product.price).to_s(:delimited) %>
+           <span class="tax">(税込)</span>
 
-      <% end %>
-
-  </div>
+          <div>
+            <% if product.status == true %>
+              <div class="text-success">販売中</div>
+            <% else %>
+              <div class="text-black-50">売り切れ</div>
+            <% end %>
+           </div>
+        </div>
+    　 <% end %>
+     </div>
+     </div>
+  <% end %>
 <%# end %>
