@@ -1,10 +1,13 @@
-<div class='container'>
-  <div class='row'>
-    <div class='col-md-3'>
-      <h2>商品詳細</h2>
+<div class="row">
+  <div class="col-md-6 offset-md-2">
+    <h5 class="d-inline bg-gray pr-3 pl-3 page-title">商品詳細</h5>
+  </div>
+</div>
+<div class="row mt-5 offset-md-2 page-title">
+    <div class="col-md-5 text-center">
       <%= attachment_image_tag(@product, :image, :fill, 250, 250, fallback: "no-image-icon.jpg") %>
-      </div>
-      <div class='col-md-8 offset-md-1'>
+    </div>
+      <div class="col-md-5 ml-5 text-left">
   		<table class='field'>
   		  <tr>
   		    <td>商品名:</td>
