@@ -7,21 +7,25 @@
 
       <div class = "sample">
 				<p>
-				  <span class="welcome">ようこそ　NaganoCakeへ</span><br>
-				  <span class="describe"> このサイトは、ケーキ販売のECサイトになります。<br>
-				  会員でない方も商品の閲覧はできますが、<br>
-				  購入には会員登録が必要になります。<br></span>
+				  <span id="welcome" class=“bg-primary” >ようこそ　<strong id="nagano-cake">Nagano Cake</strong>　へ</span><br>
+				  <span class="describe">
+				      <br>
+				      このサイトは、ケーキ販売のECサイトになります。<br>
+				      会員でない方も商品の閲覧はできますが、購入には会員登録が必要になります。<br>
+				  </span>
 				</p>
       </div>
 
   </div>
 </div>
 
-<div class="toppage">
+<div>
 	<h2 class="toppage-head">おすすめ商品</h2>
-    <% @products.first(5). each do |product| %>
-  　 <%= render "product_each", product: product %>
-    <% end %>
+    <div class="toppage">
+      <% @products.first(5). each do |product| %>
+  　     <%= render "product_each", product: product %>
+      <% end %>
+    </div>
 </div>
 
 

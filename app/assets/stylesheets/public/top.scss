@@ -1,0 +1,47 @@
+
+/*.image2 {*/
+/*  background-image: url(/attachments/image2.jpg);*/
+/*}*/
+@font-face {
+  font-family: 'japanese';
+  src: font-url('MPLUSRounded1c-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'japanese1';
+  src: font-url('KosugiMaru-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'japanese2';
+  src: font-url('YuseiMagic-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'soft';
+  src: font-url('CabinSketch-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#welcome {
+  font-family: 'japanese', sans-serif;
+  color: white;
+  font-size: 45px;
+}
+
+#nagano-cake{
+  font-family: 'soft', sans-serif;
+  color: white;
+  font-size: 120px;
+}
+
+.describe{
+  font-family: 'japanese', sans-serif;
+}
