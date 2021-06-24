@@ -10,8 +10,9 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root to: 'products#top'
-  get 'about' => 'products#about'
+  root to: 'public/products#top'
+  get 'about' => 'public/products#about'
+  get 'search/search'
 
   scope module: :public do
 
