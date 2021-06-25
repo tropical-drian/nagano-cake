@@ -15,7 +15,7 @@ class Product < ApplicationRecord
     elsif keyword == "false" || keyword == "販売停止中"
       @search_products = Product.where(status: false)
     else
-      @search_products = Product.where("name like? OR description like?", "%#{keyword}%", "%#{keyword}%")
+      @search_products = Product.where("name like? OR description like? OR genre.name like?", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%")
     end
   end
 end
