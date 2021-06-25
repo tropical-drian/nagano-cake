@@ -1,11 +1,9 @@
 <% provide(:title, "ホーム") %>
 
-<!--<= render 'public/products/articles', products: @products %>-->
-
 <div id="contents-wrapper">
   <section id="contents">
   	<figure id="keyvisual">
-  	  <img id="top" src="/assets/caramel.jpg" alt="nagano-cake" title="top画像" width="100%" height="100%" ></image>
+  	  <%= render 'public/products/articles', products: @products %>
 	  <p>
 		<span id="welcome" ><strong id="nagano-cake">Nagano Cake</strong></span><br>
 	    <span class="describe">
@@ -15,61 +13,32 @@
 		  </span>
 		</p>
 	 </figure>
+	<div class="mybox">sample text</div>
 	  <ul id="recommend">
 		<li>
 		  <figure class="mask">
-			<svg class="clip oblong" viewBox="0 0 300 140" width="300px" height="140px" style="width: 100%;">
-			  <img class="recomend-products" src="/assets/caramel.jpg" alt="nagano-cake" title="top画像" width="100%" height="100%" ></image>
-			</svg>
+		    <img class="recomend-products" src="/assets/caramel.jpg" alt="nagano-cake" title="top画像" width="300" height="175" ></image>
 		  </figure>
+		  <h1 >商品名</h1>
+		  <p>商品紹介</p>
+	    </li>
+		<li>
+		 <figure class="mask">
+		    <img class="recomend-products" src="/assets/choco.png" alt="nagano-cake" title="top画像" width="300" height="175" ></image>
+		  </figure>
+		  <h1>商品名</h1>
+		  <p>商品紹介</p>
 	    </li>
 		<li>
 		  <figure class="mask">
-			<svg class="clip oblong" viewBox="0 0 300 140" width="300px" height="140px" style="width: 100%;">
-			  <img class="recomend-products" src="/assets/caramel.jpg" alt="nagano-cake" title="top画像" width="100%" height="100%" ></image>
-			</svg>
+		    <img class="recomend-products" src="/assets/strawberry.jpg" alt="nagano-cake" title="top画像" width="300" height="175" ></image>
 		  </figure>
-	    </li>
-		<li>
-		  <figure class="mask">
-			<svg class="clip oblong" viewBox="0 0 300 140" width="300px" height="140px" style="width: 100%;">
-			  <img class="recomend-products" src="/assets/caramel.jpg" alt="nagano-cake" title="top画像" width="100%" height="100%" ></image>
-			</svg>
-		  </figure>
+		  <h1>商品名</h1>
+		  <p>商品紹介</p>
 	    </li>
 	  </ul>
-	</section>
-</div>
-
-
-
-<div class="inner-container">
-  <div class="row">
-
-      <div class = "sample">
-				<p>
-				  <span id="welcome" class=“bg-primary” >ようこそ　<strong id="nagano-cake">Nagano Cake</strong>　へ</span><br>
-				  <span class="describe">
-				      <br>
-				      このサイトは、ケーキ販売のECサイトになります。<br>
-				      会員でない方も商品の閲覧はできますが、購入には会員登録が必要になります。<br>
-				  </span>
-				</p>
-      </div>
-
-  </div>
-</div>
-
-<div>
-	<h2 class="toppage-head">おすすめ商品</h2>
-    <div class="toppage">
-      <% @products.first(5). each do |product| %>
-  　     <%= render "product_each", product: product %>
-      <% end %>
-    </div>
-</div>
-
-
-<div class="col-xs-12">
+  </section>
+  <div class="col-xs-12">
 　<%= link_to "全ての商品を見る", products_path, class: "btn-link  pull-right" %>
+</div>
 </div>
