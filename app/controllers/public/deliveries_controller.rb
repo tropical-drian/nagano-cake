@@ -4,13 +4,11 @@ class Public::DeliveriesController < ApplicationController
       @delivery = Delivery.new(delivery_params)
       @delivery.customer_id = current_customer.id
     if @delivery.save
-      flash[:notice] = "配達先を登録しました"
-      redirect_to deliveries_path
+      redirect_to deliveries_path, success: "配達先を登録しました"
     else
       @delivery = Delivery.new
       @delivery.customer_id = current_customer.id
-      flash[:notice] = "必要情報を入力してください／ハイフンは使用できません"
-      redirect_to deliveries_path
+      redirect_to deliveries_path, danger: "必要情報を入力してください／ハイフンは使用できません"
     end
   end
 
@@ -26,20 +24,18 @@ class Public::DeliveriesController < ApplicationController
   def update
      @delivery = Delivery.find(params[:id])
       if @delivery.update(delivery_params)
-        flash[:notice] = "配達先を編集しました"
-        redirect_to delivery_path
+        redirect_to delivery_path, success: "配達先を編集しました"
       else
         @delivery = Delivery.find(params[:id])
-        flash[:notice] = "必要情報を入力してください／ハイフンは使用できません"
-        redirect_to delivery_path
+
+        redirect_to delivery_path,danger: "必要情報を入力してください／ハイフンは使用できません"
       end
   end
 
   def destroy
      @delivery = Delivery.find(params[:id])
      @delivery.destroy
-     flash[:notice] = "配達先を編集しました"
-     redirect_to deliveries_path
+     redirect_to deliveries_path,success: "配達先を削除しました"
   end
 
   private
