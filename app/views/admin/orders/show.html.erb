@@ -1,7 +1,7 @@
 <div class='container'>
   <h2 class="my-5 text-center">注文履歴詳細</h2>
     <div class='row'>
-      <div class='col-xs-12'>
+      <div class='col-6'>
         <table class="table table-hover table-bordered">
           <tr><td>購入者</td><td><%= link_to admin_customer_path(@order.customer) do %>
                       <%= @order.customer.last_name %><%= @order.customer.first_name %>
@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-8">
+      <div class="col-8">
         <table class="table table-hover table-bordered">
           <thead class="thead-light">
             <tr>
@@ -46,19 +46,19 @@
           </tbody>
         </table>
       </div>
-      <div class="col-xs-8">
-        <table class="table table-hover table-bordered">
+      <div class="col-3">
+        <table class="table table-hover table-borderless">
           <tr>
-            <th>商品合計</th>
-              <td><%= product_total_price(@ordered_products).to_s(:delimited) %></td>
+            <th class="text-right">商品合計：</th>
+              <td>¥<%= product_total_price(@ordered_products).to_s(:delimited) %></td>
           </tr>
           <tr>
-            <th>配送料</th>
-              <td><%= @order.postage.to_s(:delimited) %></td>
+            <th class="text-right">配送料：</th>
+              <td>¥<%= @order.postage.to_s(:delimited) %></td>
           </tr>
           <tr>
-            <th>ご請求金額</th>
-              <td><%= @order.total_price.to_s(:delimited) %></td>
+            <th class="text-right">ご請求金額：</th>
+              <td>¥<%= @order.total_price.to_s(:delimited) %></td>
           </tr>
         </table>
       </div>
