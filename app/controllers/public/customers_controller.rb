@@ -11,7 +11,7 @@ class Public::CustomersController < ApplicationController
     @customer = current_customer
     @customer.update(is_valid: true)
     reset_session
-    redirect_to root_path
+    redirect_to root_path, success: "退会しました"
   end
 
   def edit
@@ -21,7 +21,7 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = current_customer
     if @customer.update(customer_params)
-       redirect_to customers_path
+       redirect_to customers_path, success: "内容を登録しました"
     else
        render :edit
     end
