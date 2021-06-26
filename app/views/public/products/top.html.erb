@@ -24,8 +24,28 @@
 		    <%= attachment_image_tag product, :image, fallback:"no-image.png", size: '300x175' %>
 		    <% end %>
 		  </figure>
+<!--コンフリクト箇所-->
+		  <h1>商品名</h1>
+		  <p>商品紹介</p>
+	    </li>
+		<li>
+		 <figure class="mask">
+		    <img class="recomend-products" src="/assets/choco.png" alt="nagano-cake" title="top画像" width="300" height="175" ></image>
+		  </figure>
+		  <h1>商品名</h1>
+		  <p>商品紹介</p>
+	    </li>
+		<li>
+		  <figure class="mask">
+		    <img class="recomend-products" src="/assets/strawberry.jpg" alt="nagano-cake" title="top画像" width="300" height="175" ></image>
+		  </figure>
+		  <h1>商品名</h1>
+		  <p>商品紹介</p>
+=======
 		  <h1 ><%= product.name %></h1>
 		  <p><%= product.description %></p>
+<!--コンフリクト箇所-->
+
 	    </li>
 		 <% end %>
 	  </ul>
