@@ -17,27 +17,17 @@
 	<div class="title">おすすめ</div>
 	<img class="line-under" src="assets/line_underl.png" width="100%"></image>
 	  <ul id="recommend">
+	  	<% @products.first(3).each do |product| %>
 		<li>
 		  <figure class="mask">
-		    <img class="recomend-products" src="/assets/caramel.jpg" alt="nagano-cake" title="top画像" width="300" height="175" ></image>
+		  	<%= link_to product_path(product) do %>
+		    <%= attachment_image_tag product, :image, fallback:"no-image.png", size: '300x175' %>
+		    <% end %>
 		  </figure>
-		  <h1>商品名</h1>
-		  <p>商品紹介</p>
+		  <h1 ><%= product.name %></h1>
+		  <p><%= product.description %></p>
 	    </li>
-		<li>
-		 <figure class="mask">
-		    <img class="recomend-products" src="/assets/choco.png" alt="nagano-cake" title="top画像" width="300" height="175" ></image>
-		  </figure>
-		  <h1>商品名</h1>
-		  <p>商品紹介</p>
-	    </li>
-		<li>
-		  <figure class="mask">
-		    <img class="recomend-products" src="/assets/strawberry.jpg" alt="nagano-cake" title="top画像" width="300" height="175" ></image>
-		  </figure>
-		  <h1>商品名</h1>
-		  <p>商品紹介</p>
-	    </li>
+		 <% end %>
 	  </ul>
 	<div id=all-products>
 　    <%= link_to "全ての商品を見る", products_path, class: "link" %>
