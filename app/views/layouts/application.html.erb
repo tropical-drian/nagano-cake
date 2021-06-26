@@ -14,13 +14,12 @@
   <body>
 
     <%= render 'layouts/header' %>
-
-    <% flash.each do |name, msg| %>
+　　<div class="main">
+　　   <% flash.each do |name, msg| %>
      <div class="alert alert-<%= name %>">
       <%= msg.html_safe %>
      </div>
     <% end %>
-　　<div class="main">
      <%= yield %>
     </div>
     <%= render 'layouts/footer' %>
