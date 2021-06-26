@@ -14,5 +14,25 @@
  *= require_tree .
  *= require_self
  */
+
+ html{
+   height: 100%;
+ }
+ body{
+  width: 100%;
+  position: relative;
+  min-height: 100%;
+ }
+.main {
+  padding-bottom: 100px;
+}
+footer {
+  background-color:#fff4ea;
+	height: 100px;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+}
 @import "bootstrap"
 
