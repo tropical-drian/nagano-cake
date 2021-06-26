@@ -11,8 +11,8 @@ class Admin::GenresController < ApplicationController
     if @genre.save
       redirect_to admin_genres_path, notice: 'You have created genre successfully.'
     else
-      @genres = Genre.all
-      render 'index'
+      @genres = Genre.all.page(params[:page]).per(7).order("created_at DESC")
+      redirect_to admin_genres_path, notice: 'Genre name is necessary.'
     end
   end
 
