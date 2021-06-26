@@ -1,3 +1,4 @@
+<div class="container">
 <h2 class="head-line title_h2 text-center">注文履歴一覧</h2>
 <div calss="row">
   <div class="col-xs-12">
@@ -26,13 +27,11 @@
             <td>
               <% order.ordered_products.each do |ordered_product| %>
               <%= ordered_product.product.name %><br>
+              <% end %>
             </td>
             <td><%= order.total_price.to_s(:delimited) %>円</td>
-            <td><%= order.status ? '入金待ち' : '入金確認' %></td>
-        <% end %>
-        <td>
-          <%= link_to "表示する", order_path(order), class:"btn btn-warning" %>
-        </td>
+            <td><%= order.status %></td>
+            <td><%= link_to "表示する", order_path(order), class:"btn btn-warning" %></td>
           </tr>
     　   <% end %>
        </tbody>
@@ -41,6 +40,7 @@
      <p>注文履歴がありません。</p>
     <% end %>
   </div>
+</div>
 </div>
 
 

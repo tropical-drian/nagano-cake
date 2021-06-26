@@ -23,7 +23,7 @@ p {
   border: 0;
   height: 1.2px;
   background-image: url(/assets/line.png);
-  margin: 20px 0px 40px 0px;
+  margin: 0px 0px 40px 0px;
 }
 
 .line-under {
@@ -31,7 +31,7 @@ p {
 }
 
 .title {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
   text-align: center;
 }
@@ -45,4 +45,22 @@ p {
   width: 940px;
 }
 
+.frame {
+  display: inline-block;
+  position: relative;
+  box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.8);
+}
 
+.frame:after {
+  position: absolute;
+  content: "";
+  box-shadow: 0 15px 10px rgba(0,0,0, .5);
+  transform: rotate(3deg);
+  right: 5px;
+  left: auto;
+  top: auto;
+  bottom: 15px;
+  z-index: -1;
+  width: 50%;
+  height: 20%;
+}
