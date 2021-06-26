@@ -18,6 +18,13 @@
  html{
   height: 100%;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
  body{
   width: 100%;
   position: relative;
@@ -28,9 +35,13 @@
 .container {
   margin-top: 40px;
 }
+
  /* ========================================================================== */
-/* header                                                                  */
-/* ========================================================================== */
+/* header                                                                      */
+/* ==========================================================================  */
+#header-conteiner {
+  margin-top: 0;
+}
 
 .header-out {
   text-align: center;
