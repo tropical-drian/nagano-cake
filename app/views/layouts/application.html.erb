@@ -20,14 +20,15 @@
 
     <%= render 'layouts/header' %>
         <p id="notice"><%= notice %></p>
+
     <% flash.each do |name, msg| %>
      <div class="alert alert-<%= name %>">
       <%= msg.html_safe %>
      </div>
-   <% end %>
-
-    <%= yield %>
-
+    <% end %>
+　　<div class="main">
+     <%= yield %>
+    </div>
     <%= render 'layouts/footer' %>
     <div class="search-box">
 
