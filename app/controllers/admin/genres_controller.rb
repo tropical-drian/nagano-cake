@@ -12,7 +12,8 @@ class Admin::GenresController < ApplicationController
     redirect_to admin_genres_path, notice: 'You have created genre successfully.'
   else
     @genres = Genre.all.page(params[:page]).per(7).order("created_at DESC")
-    redirect_to admin_genres_path, notice: 'Genre name is necessary.'
+    flash.now[:danger] = 'Genre name is necessary!'
+    render 'index'
   end
   end
 
@@ -25,6 +26,7 @@ class Admin::GenresController < ApplicationController
   if @genre.update(genre_params)
     redirect_to admin_genres_path, notice: 'You have updated genre successfully.'
   else
+    flash.now[:danger] = 'Genre name is necessary!'
     render 'edit'
   end
   end
