@@ -20,7 +20,7 @@ class Public::CartItemsController < ApplicationController
     # カートの中に同じ商品がある場合は数だけ追加する
     @update_cart_item = CartItem.find_by(product: @cart_item.product)
       if @update_cart_item.present? && @cart_item.valid?
-        @cart_item.quantity += @update_cart_item.quantity
+        @cart_item.quantity = @update_cart_item.quantity
         @update_cart_item.destroy
       end
     @cart_item.save
