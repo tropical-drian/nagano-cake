@@ -6,6 +6,12 @@ class Product < ApplicationRecord
 	has_many :ordered_products
 
   attachment :image
+  
+  validates :genre_id, presence: true
+  validates :name,presence: true
+  validates :description,presence: true
+  validates :price, presence: true
+  validates :price, numericality: { only_integer: true }
 
   # 検索用メソッド
   def self.search(keyword)

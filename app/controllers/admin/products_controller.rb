@@ -21,8 +21,9 @@ class Admin::ProductsController < ApplicationController
     if @product.save
       redirect_to admin_product_path(@product), notice: 'You have created product successfully.'
     else
-      @products = Product.all
-      render 'index'
+      @product = Product.new
+      @genres = Genre.all
+      render 'new'
     end
   end
 
