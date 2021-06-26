@@ -38,7 +38,7 @@ class Public::OrdersController < ApplicationController
       current_customer.delivery.create(address_params)
     else
       # どのラジオボタンも選択しなかったとき
-      redirect_back(fallback_location: root_path), danger: "必要情報を入力してください"
+      redirect_back fallback_location: root_path, danger: "必要情報を入力してください"
     end
   end
 
