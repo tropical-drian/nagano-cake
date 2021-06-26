@@ -1,33 +1,34 @@
-<div class='container px-5 px-sm-0'>
-  <div class='row'>
-    <h2>商品編集</h2>
-    <div class='col-md-8'>
-        <%= form_with model: [:admin, @product], local: true do |f| %>
-      <div class="form-group">
-        <%= f.label :image_id, "商品画像" %>
-        <%= f.attachment_field :image %>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto col-md-6">
+      <h1 class="mb-5">商品編集</h1>
+        <%= form_with model: @product, url: admin_product_path(@product), local:true do |f| %>
+      <div class="form-group row">
+        <%= f.label :image_id, "商品画像", class: "col-sm-5 control-label" %>
+        <%= f.attachment_field :image, class: 'col-sm-7' %>
       </div>
-      <div class="form-group">
-        <%= f.label :name, "商品名" %>
-        <%= f.text_field :name, class: 'form-control product_name' %>
+      <div class="form-group row">
+        <%= f.label :name, "商品名", class: "col-sm-5 control-label" %>
+        <%= f.text_field :name, class: 'col-sm-7 form-control product_name', placeholder: "商品名" %>
       </div>
-      <div class="form-group">
-        <%= f.label :descroption, "商品説明" %>
-        <%= f.text_area :description, class: 'form-control product_description' %>
+      <div class="form-group row">
+        <%= f.label :descroption, "商品説明", class: "col-sm-5 control-label" %>
+        <%= f.text_area :description, class: 'col-sm-7 form-control product_description', placeholder: "ここに説明文を記述します" %>
       </div>
-      <div class="form-group">
-        <%= f.label :genre_id, "ジャンル" %>
+      <div class="form-group row">
+        <%= f.label :genre_id, "ジャンル", class: "col-sm-5 control-label" %>
         <%= f.collection_select :genre_id, @genres, :id, :name, prompt: "選択して下さい" %>
       </div>
-      <div class="form-group">
-        <%= f.label :price, "税抜価格" %>
-        <%= f.text_field :price, class: 'form-control product_price' %>
+      <div class="form-group row">
+        <%= f.label :price, "税抜価格", class: "col-sm-5 control-label" %>
+        <%= f.text_field :price, class: 'col-sm-6 form-control product_price', placeholder: "1,000" %>
+        <p class="col-sm-1">円</p>
       </div>
-      <div class="form-group">
-        <%= f.label :status, "販売ステータス" %>
-        <p><%= f.radio_button :status, :true %>販売中<%= f.radio_button :status, :false %>販売停止中</p>
+      <div class="form-group row">
+        <%= f.label :status, "販売ステータス", class: "col-sm-5 control-label" %>
+        <%= f.radio_button :status, :true %>販売中<%= f.radio_button :status, :false %>販売停止中
       </div>
-      <div class="form-group">
+      <div class="form-group row">
         <%= f.submit "変更を保存", class: 'btn btn-success' %>
       </div>
         <% end %>

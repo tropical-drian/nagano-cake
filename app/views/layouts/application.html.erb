@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-
     <title>nagano-cake</title>
 
     <%= csrf_meta_tags %>
@@ -10,12 +9,22 @@
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+    div {
+      background-image: url(assets/background.jpg);
+    }
+  </style>
   </head>
 
   <body>
 
     <%= render 'layouts/header' %>
         <p id="notice"><%= notice %></p>
+    <% flash.each do |name, msg| %>
+     <div class="alert alert-<%= name %>">
+      <%= msg.html_safe %>
+     </div>
+   <% end %>
 
     <%= yield %>
 

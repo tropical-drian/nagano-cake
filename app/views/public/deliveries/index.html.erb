@@ -4,7 +4,7 @@
 
 <% if @delivery.present? %>
 　<table class="table table-hover table-bordered">
-　  <thead>
+　  <thead class="table-secondary">
 　    <tr class="info" >
        <th>郵便番号</th>
        <th>住所</th>
@@ -28,7 +28,7 @@
 　</table>
 
 　<div class="divclass return-mypage-btn-wrap">
-　 <%= link_to "マイページへ戻る", customers_path(current_customer.id), class:"btn btn-default" %>
+　 <%= link_to "マイページへ戻る", customers_path(current_customer.id), class:"btn btn-primary btn-lg btn-block" %>
 　</div>
 <% end %>
 </div>
