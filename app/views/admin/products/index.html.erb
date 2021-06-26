@@ -7,9 +7,8 @@
     <!--</div>-->
     <div class='d-flex justify-content-end'>
       <div class="btnripple">
-        <%= link_to new_admin_product_path(@product) do %>
-          <i class="far fa-plus-circle">新規追加</i>
-        <% end %>
+        <%= link_to "+", new_admin_product_path(@product), class:"btn btn-success"%>
+
       </div>
     </div>
       <table class='table table-hover table-inverse'>
