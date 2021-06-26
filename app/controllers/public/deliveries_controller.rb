@@ -22,7 +22,6 @@ class Public::DeliveriesController < ApplicationController
   end
 
   def update
-
      @delivery = Delivery.find(params[:id])
       if @delivery.update(delivery_params)
         #redirect_to deliveries_path,success: "配達先を編集しました"
