@@ -12,7 +12,6 @@ Rails.application.routes.draw do
 
   root to: 'public/products#top'
   get 'about' => 'public/products#about'
-  get 'search/search'
 
   scope module: :public do
 
@@ -119,11 +118,7 @@ Rails.application.routes.draw do
 
 =======
     # resources :searches, only: [:search]
-<<<<<<< HEAD
-    get 'searchs'
-=======
     get 'searchs' => "searchs"
->>>>>>> [Fix]search完成
   end
 
 
