@@ -4,51 +4,34 @@
 
   <%= form_with model: delivery, url: deliveries_path, local: true do |f| %>
 
-   <div class="create-delivery-table row">
-    <div class="col-xs-7">
-      <table class="table">
-
-        <tbody>
-
-         <tr class="row">
-            <th class ="col-xs-3">郵便番号</th>
-            <td class="col-xs-9 row">
+     <div class="row justify-content-center">
+       <div class="form-group col-md-8">
+          <th class ="col-xs-3">郵便番号</th>
+            <td class="col-xs-5row">
               <div class="col-xs-4">
                 <%= f.text_field :postcode, class:"form-control", placeholder: "0000000" %>
               </div>
             </td>
-            </th>
-          </tr>
-
-          <tr class="row">
-            <th>住所</th>
-            <th>
-              <div class="col-xs-10">
-                <%= f.text_field :address, class:"form-control", placeholder: "東京都渋谷区渋谷区神園町0-0" %>
-              </div>
-            </th>
-          </tr>
-
-          <tr class="row">
-            <th>宛先</th>
+          </th>
+          <th>住所</th>
+          <th>
+            <div class="col-xs-10">
+              <%= f.text_field :address, class:"form-control", placeholder: "東京都渋谷区渋谷区神園町0-0" %>
+            </div>
+          </th>
+          <th>宛先</th>
             <td>
-              <div class="col-xs-5">
+              <div class="col-xs-10">
                 <%= f.text_field :name, class:"form-control", placeholder: "令和　陸子" %>
               </div>
             </td>
-          </tr>
-
           <th>
+            <p> </p>
             <div class="create-delivery-btn-wrap row">
              <%= f.submit '新規登録', class:"create-delivery-btn btn btn-primary" %>
             </div>
-          </th>
-
-        </tbody>
-      </table>
-    </div>
-   </div>
+    
+       </div>
+     </div>
   <% end %>
-
-</div>
 
