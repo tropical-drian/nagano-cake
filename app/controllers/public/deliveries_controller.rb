@@ -24,11 +24,9 @@ class Public::DeliveriesController < ApplicationController
   def update
      @delivery = Delivery.find(params[:id])
       if @delivery.update(delivery_params)
-        redirect_to delivery_path, success: "配達先を編集しました"
+        redirect_to delivery_path(@delivery.id), success: "配達先を編集しました"
       else
-        @delivery = Delivery.find(params[:id])
-
-        redirect_to delivery_path,danger: "必要情報を入力してください／ハイフンは使用できません"
+        render :edit
       end
   end
 
