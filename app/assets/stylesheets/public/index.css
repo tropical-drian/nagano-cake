@@ -1,6 +1,10 @@
 .pagination {
   display: flex;
   justify-content: center;
+<<<<<<< HEAD
+=======
+  margin-top: 40px;
+>>>>>>> 6535c75c29d88ccfcb0e23be37f9834ddbd7bba8
 }
 .pagination a {
   background-color: grey;
@@ -47,4 +51,9 @@ text-align:  center;
 
 .flame{
   margin-bottom: 20px
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> 6535c75c29d88ccfcb0e23be37f9834ddbd7bba8

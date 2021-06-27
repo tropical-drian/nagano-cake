@@ -21,18 +21,37 @@ class Admin::ProductsController < ApplicationController
     if @product.save
       redirect_to admin_product_path(@product), notice: 'You have created product successfully.'
     else
+<<<<<<< HEAD
       @products = Product.all
       render 'index'
+=======
+      @product = Product.new
+      @genres = Genre.all
+      flash.now[:danger] = '空欄があります。'
+      render 'new'
+>>>>>>> 6535c75c29d88ccfcb0e23be37f9834ddbd7bba8
     end
   end
 
   def edit
+    @product = Product.find(params[:id])
+    @genres = Genre.all
   end
 
   def update
+<<<<<<< HEAD
     if @product.update(product_params)
       redirect_to admin_product_path(@product), notice: 'You have updated product successfully.'
     else
+=======
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      redirect_to admin_product_path(@product), notice: 'You have updated product successfully.'
+    else
+      @product = Product.find(params[:id])
+      @genres = Genre.all
+      flash.now[:danger] = ' 空欄があります。'
+>>>>>>> 6535c75c29d88ccfcb0e23be37f9834ddbd7bba8
       render 'edit'
     end
   end

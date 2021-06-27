@@ -14,13 +14,21 @@
   <body>
 
     <%= render 'layouts/header' %>
+<<<<<<< HEAD
 
     <% flash.each do |name, msg| %>
+=======
+　　<div class="main">
+　　   <% flash.each do |name, msg| %>
+>>>>>>> 6535c75c29d88ccfcb0e23be37f9834ddbd7bba8
      <div class="alert alert-<%= name %>">
       <%= msg.html_safe %>
      </div>
     <% end %>
+<<<<<<< HEAD
 　　<div class="main">
+=======
+>>>>>>> 6535c75c29d88ccfcb0e23be37f9834ddbd7bba8
      <%= yield %>
     </div>
     <%= render 'layouts/footer' %>

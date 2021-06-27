@@ -31,6 +31,10 @@ class Admin::OrdersController < ApplicationController
 
 	private
 	def order_params
+<<<<<<< HEAD
 		  params.require(:order).permit(:order_status)
+=======
+		  params.require(:order).permit(:status)
+>>>>>>> 6535c75c29d88ccfcb0e23be37f9834ddbd7bba8
 	end
 end

@@ -26,16 +26,30 @@
             <% @products.each do |product| %>
           <tr>
             <td><%= product.id %></td>
+<<<<<<< HEAD
             <td><%= product.name %></td>
             <td><%= product.price %></td>
             <td><%= product.genre %></td>
             <td><%= product.status %></td>
+=======
+            <td><%= link_to product.name, admin_product_path(product) %></td>
+            <td><%= product.price %></td>
+            <td><%= product.genre.name %></td>
+            <td><%= product.status ? '販売中' : '販売停止中' %></td>
+>>>>>>> 6535c75c29d88ccfcb0e23be37f9834ddbd7bba8
           </tr>
             <% end %>
         </tbody>
       </table>
   </div>
 </div>
+<<<<<<< HEAD
 <div class="text-center">
   <%= paginate @products %>
+=======
+
+<div class="text-center">
+  <%= paginate @products %>
+</div>
+>>>>>>> 6535c75c29d88ccfcb0e23be37f9834ddbd7bba8
 </div>

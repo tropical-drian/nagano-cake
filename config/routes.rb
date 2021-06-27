@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     :sessions => 'admins/sessions'
   }
 
-  devise_for :customers, class_name: "Public::Customer", :controllers => {
+  devise_for :customers, :controllers => {
     :sessions => 'customers/sessions',
     :registrations => 'customers/registrations',
    }
@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   get 'about' => 'public/products#about'
 
   scope module: :public do
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6535c75c29d88ccfcb0e23be37f9834ddbd7bba8
     resources :products, only: [:show, :index, :top, :about]
     get 'customer/edit' => 'customers#edit'
     put 'customer' => 'customers#update'
@@ -30,6 +33,7 @@ Rails.application.routes.draw do
       collection do
         delete '/' => 'cart_items#destroy_all'
       end
+<<<<<<< HEAD
     end
 
 
@@ -94,6 +98,10 @@ Rails.application.routes.draw do
       end
     end
 
+=======
+    end
+
+>>>>>>> 6535c75c29d88ccfcb0e23be37f9834ddbd7bba8
 
     resources :orders,only: [:new,:index,:show,:create] do
       collection do
@@ -107,16 +115,27 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+<<<<<<< HEAD
     resources :orders, only: [:show, :update, :top]
+=======
+    resources :orders, only: [:show, :update, :top]do
+        member do
+        get :customer_top
+        end
+      end
+>>>>>>> 6535c75c29d88ccfcb0e23be37f9834ddbd7bba8
     get 'orders' => 'orders#top',as: :root
     resources :ordered_products, only: [:update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :products, except: [:destroy]
     resources :genres, except: [:destroy]
 <<<<<<< HEAD
+<<<<<<< HEAD
     resources :searchs, only: [:search]
 
 =======
+=======
+>>>>>>> 6535c75c29d88ccfcb0e23be37f9834ddbd7bba8
     # resources :searches, only: [:search]
     get 'searchs' => "searchs"
   end

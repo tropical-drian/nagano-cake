@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+document.addEventListener("turbolinks:load", function() {
+>>>>>>> 6535c75c29d88ccfcb0e23be37f9834ddbd7bba8
 $(document).ready(function(){
   $('.bxslider').bxSlider({
     auto: true,           // 自動スライド
@@ -10,4 +14,8 @@ $(document).ready(function(){
     autoHover: true,       // ホバー時に自動スライドを停止
     pager: false,
   });
+<<<<<<< HEAD
+=======
+});
+>>>>>>> 6535c75c29d88ccfcb0e23be37f9834ddbd7bba8
 });

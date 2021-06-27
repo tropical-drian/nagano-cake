@@ -1,7 +1,14 @@
 class ApplicationController < ActionController::Base
+<<<<<<< HEAD
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+=======
+
+  protect_from_forgery with: :exception
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  
+>>>>>>> 6535c75c29d88ccfcb0e23be37f9834ddbd7bba8
   add_flash_types :success, :info, :warning, :danger
 
   protected
@@ -14,6 +21,11 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:account_update, keys: added_attrs)
     end
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 6535c75c29d88ccfcb0e23be37f9834ddbd7bba8
   def
     after_sign_out_path_for(resource_or_scope)
       if resource_or_scope == :customer

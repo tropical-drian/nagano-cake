@@ -23,8 +23,18 @@ class Public::CartItemsController < ApplicationController
         @cart_item.quantity = @update_cart_item.quantity
         @update_cart_item.destroy
       end
+<<<<<<< HEAD
     @cart_item.save
     redirect_to cart_items_path
+=======
+
+    if @cart_item.save
+      redirect_to cart_items_path
+    else
+      flash[:alert] = "個数を選択してください"
+      render "public/products/show"
+    end
+>>>>>>> 6535c75c29d88ccfcb0e23be37f9834ddbd7bba8
   end
 
   def destroy

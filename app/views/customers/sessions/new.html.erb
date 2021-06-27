@@ -4,6 +4,7 @@
       <div class="customer-session-box">
         <h3>会員の方はこちらからログイン</h3>
           <%= form_for(resource, as: resource_name, url: session_path(resource_name), html:{class:"form-horizontal"}) do |f| %>
+<<<<<<< HEAD
             <div class="row">
               <div class="col-xs-9 col-xs-offset-3">
 
@@ -12,11 +13,16 @@
                 <% end -%>
               </div>
             </div>
+=======
+>>>>>>> 6535c75c29d88ccfcb0e23be37f9834ddbd7bba8
             <div class="form-group">
               <%= f.label :email, "メールアドレス", class:"col-xs-2 col-xs-offset-1 control-label" %>
               <div class="col-xs-9 "><%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %></div>
             </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6535c75c29d88ccfcb0e23be37f9834ddbd7bba8
             <div class="form-group">
               <%= f.label :password, "パスワード", class:"col-xs-2 col-xs-offset-1 control-label" %>
               <div class="col-xs-9 "><%= f.password_field :password, autocomplete: "current-password", class:"form-control" %></div>
