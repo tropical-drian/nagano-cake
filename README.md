@@ -4,6 +4,7 @@
 # 設計
 
 ## ER図
+[ER図決定版.pdf](https://github.com/tropical-drian/nagano-cake/files/6721208/ER.pdf)
 
 ## アプリケーション詳細設計
 
