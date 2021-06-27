@@ -137,5 +137,10 @@ footer {
 	bottom: 0;
 	text-align: center;
 }
+
+a:hover{
+  text-decoration: none!important;
+}
+
 @import "bootstrap"
 

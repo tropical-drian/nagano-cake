@@ -1,6 +1,7 @@
 .pagination {
   display: flex;
   justify-content: center;
+  margin-top: 40px;
 }
 .pagination a {
   background-color: grey;
@@ -48,3 +49,4 @@ text-align:  center;
 .flame{
   margin-bottom: 20px
 }
+
