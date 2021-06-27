@@ -1,0 +1,37 @@
+<h2 class="head-line title_h2 text-center">配達先一覧</h2>
+
+<div class="create-delivery-section">
+
+  <%= form_with model: delivery, url: deliveries_path, local: true do |f| %>
+
+     <div class="row justify-content-center">
+       <div class="form-group col-md-8">
+          <th class ="col-xs-3">郵便番号</th>
+            <td class="col-xs-5row">
+              <div class="col-xs-4">
+                <%= f.text_field :postcode, class:"form-control", placeholder: "0000000" %>
+              </div>
+            </td>
+          </th>
+          <th>住所</th>
+          <th>
+            <div class="col-xs-10">
+              <%= f.text_field :address, class:"form-control", placeholder: "東京都渋谷区渋谷区神園町0-0" %>
+            </div>
+          </th>
+          <th>宛先</th>
+            <td>
+              <div class="col-xs-10">
+                <%= f.text_field :name, class:"form-control", placeholder: "令和　陸子" %>
+              </div>
+            </td>
+          <th>
+            <p> </p>
+            <div class="create-delivery-btn-wrap row">
+             <%= f.submit '新規登録', class:"create-delivery-btn btn btn-primary" %>
+            </div>
+    
+       </div>
+     </div>
+  <% end %>
+

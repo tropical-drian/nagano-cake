@@ -1,3 +1,66 @@
 // Place all the styles related to the public/products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Meiryo", "メイリオ", "MS PGothic", "ＭＳ Ｐゴシック", sans-serif;
+}
+
+p {
+  text-align: center;
+}
+
+#contents {
+  width: 940px;
+  margin: 0 auto;
+  padding-top: 1px;
+}
+
+#about {
+  text-align: center;
+}
+
+.line {
+  border: 0;
+  height: 1.2px;
+  background-image: url(/assets/line.png);
+  margin: 0px 0px 40px 0px;
+}
+
+.line-under {
+  margin-top: 35px;
+}
+
+.title {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.about-describe {
+  font-size: 15px;
+  line-height: 38px;
+}
+
+#about-shop {
+  width: 940px;
+}
+
+.frame {
+  display: inline-block;
+  position: relative;
+  box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.8);
+}
+
+.frame:after {
+  position: absolute;
+  content: "";
+  box-shadow: 0 15px 10px rgba(0,0,0, .5);
+  transform: rotate(3deg);
+  right: 5px;
+  left: auto;
+  top: auto;
+  bottom: 15px;
+  z-index: -1;
+  width: 50%;
+  height: 20%;
+}

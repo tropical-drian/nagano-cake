@@ -1,0 +1,46 @@
+<div class="container">
+<h2 class="head-line title_h2 text-center">マイページ</h2>
+
+<div class="row justify-content-center">
+  <div class="col-md-6">
+
+   <table class="table table-bordered ">
+     <thead>
+     	<tr>
+			 <td class="info col-xs-2">氏名</td>
+			 <td class="text-left"><%= @customer.last_name %>　<%= @customer.first_name %></td>
+		  </tr>
+	    <tr>
+			 <td class="info">カナ</td>
+		 	 <td class="text-left"><%= @customer.kana_last_name %>　<%= @customer.kana_first_name %></td>
+		  </tr>
+		  <tr>
+			 <td>郵便番号</td>
+			 <td><%= @customer.postal_code %></td>
+		  </tr>
+		  <tr>
+			 <td>住所</td>
+			 <td><%= @customer.residence %></td>
+		  </tr>
+		  <tr>
+			 <td>電話番号</td>
+			 <td><%= @customer.phone_number %></td>
+		  </tr>
+      <tr>
+			 <td>メールアドレス</td>
+			 <td><%= @customer.email %></td>
+		  </tr>
+   	 </thead>
+	 </table>
+
+     <div class="row justify-content-center">
+         <%= link_to " 配達先一覧を見る", deliveries_path, class:"btn btn-outline-primary" %>
+         <p> </p>
+         <%= link_to " 注文履歴を見る", orders_path,  class:"btn btn-outline-warning" %>
+         <p> </p>
+         <%= link_to "編集する", customer_edit_path, class:"btn btn-outline-success" %>
+      </div>
+    </div>
+　　</div>
+　</div>
+　</div>

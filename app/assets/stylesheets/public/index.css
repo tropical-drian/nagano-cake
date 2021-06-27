@@ -1,0 +1,52 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+.pagination a {
+  background-color: grey;
+  text-decoration: none;
+}
+
+.pagination * {
+  color: white;
+  margin: 0 7px;
+  text-decoration: none;
+  padding: 12.5px 18.5px;
+  border-radius: 25px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.current {
+  font-style: normal;
+  color: white;
+  background: #93f1ff;
+  border-radius: 22.5px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.pagination a:hover {
+  background: #93f1ff;
+}
+
+.pagination .disabled {
+  color: #adadad;
+  padding: 11px 17px;
+  border: 1px solid #666666;
+  border-radius: 23px;
+  font-family: 'Nunito', sans-serif;
+}
+
+h1{
+font-family: 'Kaushan Script', cursive;
+
+padding:  20px;
+margin-bottom: 20px;
+text-align:  center;
+
+}
+
+.flame{
+  margin-bottom: 20px
+}
+

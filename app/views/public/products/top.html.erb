@@ -1,0 +1,39 @@
+<% provide(:title, "ホーム") %>
+
+<div id="contents-wrapper">
+  <section id="contents">
+  	<figure id="keyvisual">
+  	  <%= render 'public/products/articles', products: @products %>
+	  <p>
+		<span id="welcome" ><strong id="nagano-cake">Nagano Cake</strong></span><br>
+	    <span class="describe">
+		  <br>
+		  このサイトは、ケーキ販売のECサイトになります。<br>
+		  会員でない方も商品の閲覧はできますが、購入には会員登録が必要になります。<br>
+		  </span>
+		</p>
+	 </figure>
+	<hr class="line" />
+	<div class="title">おすすめ</div>
+	<img class="line-under" src="assets/line_underl.png" width="100%"></image>
+	  <ul id="recommend">
+	  	<% @products.first(3).each do |product| %>
+		<li>
+		  <figure class="mask">
+		  	<%= link_to product_path(product) do %>
+		    <%= attachment_image_tag product, :image, fallback:"no-image.png", size: '300x175' %>
+		    <% end %>
+		  </figure>
+		  <h1 ><%= product.name %></h1>
+		  <p><%= product.description %></p>
+	   </li>
+		 <% end %>
+	  </ul>
+	<div id=all-products>
+　    <%= link_to "全ての商品を見る", products_path, class: "link" %>
+　    <img src="assets/text-frame.png" />
+　  </div>
+　  <div>
+　  </div>
+  </section>
+</div>

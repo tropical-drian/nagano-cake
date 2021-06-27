@@ -1,0 +1,7 @@
+<ul class="bxslider">
+  <% @products.each do |product| %>
+	<div id="top" alt="nagano-cake" title="top画像" >
+    <%= attachment_image_tag(product, :image, size: "940x400", fallback: "no_image.jpg") %>
+    </div>
+  <% end %>
+</ul>
