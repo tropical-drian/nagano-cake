@@ -7,7 +7,7 @@ DMMWEBCAMPのチーム開発で作成したアプリです。<br>
 ## ER図
 ![ER図](https://user-images.githubusercontent.com/81765199/123536917-f19af600-d767-11eb-9f13-24328aeacb04.jpg)
 ## アプリケーション詳細設計
-
+![アプリケーション詳細設計書](https://user-images.githubusercontent.com/81765199/123537735-e21dac00-d76b-11eb-9d98-839d22cbba2d.jpg)
 # 実装機能
 ## 会員側
 1. 商品一覧の閲覧（ログイン不要)
