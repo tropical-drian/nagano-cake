@@ -1,6 +1,7 @@
 .pagination {
   display: flex;
-  justify-content: center;
+  margin-top: 40px;
+  justify-content: center
 }
 .pagination a {
   background-color: grey;
