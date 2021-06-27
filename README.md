@@ -29,4 +29,4 @@ DMMWEBCAMPのチーム開発で作成したアプリです。<br>
 Ruby on Rails rails 5.2.6
 
 # 開発者
-・おがちゃん　・きのけん　・[せやさん](https://github.com/seiya1911)　・たけだっち
+・[おがちゃん](https://github.com/AZUSA5296)　・[きのけん](https://github.com/kinoshitaken123)　・[せやさん](https://github.com/seiya1911)　・[たけだっち](https://github.com/yunhao17)
