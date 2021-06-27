@@ -1,10 +1,12 @@
-# ECサイト 「Nagano Cake
+# ECサイト 「Nagano Cake」
 長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイト開発。
+DMMWEBCAMPのチーム開発で作成したアプリです。
+作成開始日:6/12 作成完了日:6/27
 
 # 設計
 
 ## ER図
-[ER図決定版.pdf](https://github.com/tropical-drian/nagano-cake/files/6721208/ER.pdf)
+![ER図](https://user-images.githubusercontent.com/81765199/123536917-f19af600-d767-11eb-9f13-24328aeacb04.jpg)
 
 ## アプリケーション詳細設計
 
